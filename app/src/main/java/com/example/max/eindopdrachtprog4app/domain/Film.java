@@ -22,6 +22,13 @@ public class Film implements Serializable {
     private String special_features;
     private String title;
 
+    public Film(String title, String description) {
+        this.title = title;
+        this.description= description;
+
+    }
+
+
     public String getDescription() {
         return description;
     }
