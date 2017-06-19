@@ -18,7 +18,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-
 import com.example.max.eindopdrachtprog4app.R;
 import com.example.max.eindopdrachtprog4app.service.Config;
 import com.example.max.eindopdrachtprog4app.service.VolleyRequestQueue;
@@ -38,6 +37,8 @@ public class LoginActivity extends AppCompatActivity {
     private String mPassword;
 
     public final String TAG = this.getClass().getSimpleName();
+
+    public final static String USER_INFO = "CUSTOMER";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,14 +96,20 @@ public class LoginActivity extends AppCompatActivity {
                             // het token in SharedPreferences op te slaan. Op die manier
                             // is het token tussen app-stop en -herstart beschikbaar -
                             // totdat het token expired.
-                            try {
-                                String token = response.getString("token");
+                            try{
+
+                                    String customerId = response.getString("user_id");
+
+                                    String token = response.getString("token");
+
 
                                 Context context = getApplicationContext();
                                 SharedPreferences sharedPref = context.getSharedPreferences(
                                         getString(R.string.preference_file_key), Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPref.edit();
                                 editor.putString(getString(R.string.saved_token), token);
+                                editor.commit();
+                                editor.putString(getString(R.string.customer_id),customerId);
                                 editor.commit();
 
                                 // Start the main activity, and close the login activity
@@ -115,6 +122,8 @@ public class LoginActivity extends AppCompatActivity {
                                 // e.printStackTrace();
                                 Log.e(TAG, e.getMessage());
                             }
+
+
                         }
                     }, new Response.ErrorListener() {
 

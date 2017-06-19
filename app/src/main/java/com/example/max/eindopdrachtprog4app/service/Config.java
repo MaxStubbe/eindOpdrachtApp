@@ -10,6 +10,11 @@ public class Config {
     public static final String URL_LOGIN = "https://einopdrachtprog4.herokuapp.com/api/v1/login";
     public static final String URL_FILMS = "https://einopdrachtprog4.herokuapp.com/api/v1/films";
     public static final String URL_REGISTER = "https://einopdrachtprog4.herokuapp.com/api/v1/register";
-    public static final String URL_LENINGAANMAKEN = "https://einopdrachtprog4.herokuapp.com/api/v1/rental/:userid/:inventoryid";
+
+    public static final String URL_LENING(String customer_id,String inventory_id){
+        String URL = "https://einopdrachtprog4.herokuapp.com/api/v1/rentals/" + customer_id + "/" + inventory_id;
+        return URL;
+    }
+
 
 }

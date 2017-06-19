@@ -18,6 +18,7 @@ public class FilmMapper {
     public static final String FILM_TITLE = "title";
     public static final String FILM_DESCRIPTION = "description";
     public static final String FILM_ACTIVE = ("active");
+    public static final String FILM_INV = ("inventory_id");
     /**
      * Map het JSON response op een arraylist en retourneer deze.
      */
@@ -34,7 +35,8 @@ public class FilmMapper {
                 Film Film = new Film(
                         jsonProduct.getString(FILM_TITLE),
                         jsonProduct.getString(FILM_DESCRIPTION),
-                        jsonProduct.getString(FILM_ACTIVE)
+                        jsonProduct.getString(FILM_ACTIVE),
+                        jsonProduct.getString(FILM_INV)
                 );
 
                 result.add(Film);

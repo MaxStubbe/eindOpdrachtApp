@@ -18,33 +18,39 @@
 
         <TextView
             android:id="@+id/textDetailFilmTitle"
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:textAlignment="center"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:text="TITLE"/>
 
         <TextView
             android:id="@+id/textDetailFilmDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:text="Description"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:orientation="horizontal"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="8dp">
+            android:textColor="#372c24"
+            android:text="Lenen tot"
+            android:layout_marginTop="30dp"/>
 
+        <EditText android:layout_width="fill_parent"
+            android:id="@+id/edittextReturndate"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="20dip"
+            android:singleLine="true"/>
 
             <Button
                 android:id="@+id/leenButton"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="60dp"
                 android:text="Lenen" />
 
         </LinearLayout>
@@ -52,4 +58,4 @@
 
     </LinearLayout>
 
-</LinearLayout>
+

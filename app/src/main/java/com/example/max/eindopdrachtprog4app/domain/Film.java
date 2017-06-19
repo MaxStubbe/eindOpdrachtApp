@@ -12,7 +12,10 @@ public class Film implements Serializable {
     private boolean active;
     private String title;
 
-    public Film(String title, String description,String active) {
+
+    private String inventory_id;
+
+    public Film(String title, String description,String active,String inventory_id) {
         this.title = title;
         this.description= description;
         if(active == "1") {
@@ -20,6 +23,7 @@ public class Film implements Serializable {
         }else{
             this.active = false;
         }
+        this.inventory_id = inventory_id;
     }
 
 
@@ -46,4 +50,13 @@ public class Film implements Serializable {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public String getInventory_id() {
+        return inventory_id;
+    }
+
+    public void setInventory_id(String inventory_id) {
+        this.inventory_id = inventory_id;
+    }
+
 }

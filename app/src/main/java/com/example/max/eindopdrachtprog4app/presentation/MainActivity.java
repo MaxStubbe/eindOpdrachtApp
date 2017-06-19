@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements
     private ArrayList<Film> films = new ArrayList<>();
     private Button btnLogout;
 
+
     public final String TAG = this.getClass().getSimpleName();
 
     // The name for communicating Intents extras
@@ -66,7 +67,6 @@ public class MainActivity extends AppCompatActivity implements
                     // Navigate to login screen
                     Intent login = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(login);
-
 
                 }
             });

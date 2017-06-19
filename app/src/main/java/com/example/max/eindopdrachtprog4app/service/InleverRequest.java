@@ -23,7 +23,8 @@ import java.util.Map;
  * Created by Max on 19-6-2017.
  */
 
-public class LeenRequest {
+public class InleverRequest {
+
     private Context context;
     private String customer_id;
     private String return_date;
@@ -31,14 +32,13 @@ public class LeenRequest {
 
     public final String TAG = this.getClass().getSimpleName();
 
-    public LeenRequest(Context context, String return_date,String inventory_id) {
+    public InleverRequest(Context context,String inventory_id) {
         this.context = context;
-        this.return_date = return_date;
         this.inventory_id = inventory_id;
     }
 
     //GET REQUEST
-    public void handlePostLening() {
+    public void handleDeleteLening() {
 
         //DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date();
@@ -59,7 +59,7 @@ public class LeenRequest {
 
             Log.i(TAG, "Token gevonden, we gaan het request uitvoeren");
             JsonObjectRequest jsObjRequest = new JsonObjectRequest
-                    (Request.Method.POST, Config.URL_LENING(customer_id,inventory_id), jsonBody, new Response.Listener<JSONObject>() {
+                    (Request.Method.DELETE, Config.URL_LENING(customer_id,inventory_id), jsonBody, new Response.Listener<JSONObject>() {
 
                         @Override
                         public void onResponse(JSONObject response) {
