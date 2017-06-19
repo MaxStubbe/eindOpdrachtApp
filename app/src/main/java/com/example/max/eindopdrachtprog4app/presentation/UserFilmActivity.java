@@ -93,7 +93,7 @@ public void onItemClick(AdapterView<?> parent, View view, int position, long id)
         Log.i(TAG, "Position " + position + " is geselecteerd");
 
         Film film = films.get(position);
-        Intent intent = new Intent(getApplicationContext(), UserFilm_Detailed.class);
+        Intent intent = new Intent(getApplicationContext(), Film_Detailed.class);
         intent.putExtra(FILM_DATA, film);
         startActivity(intent);
         }

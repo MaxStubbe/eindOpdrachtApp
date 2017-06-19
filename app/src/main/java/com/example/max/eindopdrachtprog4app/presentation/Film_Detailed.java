@@ -1,6 +1,7 @@
 package com.example.max.eindopdrachtprog4app.presentation;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.max.eindopdrachtprog4app.R;
 import com.example.max.eindopdrachtprog4app.domain.Film;
@@ -23,6 +25,7 @@ public class Film_Detailed extends AppCompatActivity {
     private TextView BeschrijvingTextview;
     private EditText ReturndateEditText;
     private Button leenBtn;
+    private Film film;
 
 
     private String return_date;
@@ -40,7 +43,7 @@ public class Film_Detailed extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
 
-        Film film = (Film) extras.getSerializable(FILM_DATA);
+        this.film = (Film) extras.getSerializable(FILM_DATA);
         Context context = getApplicationContext();
         SharedPreferences sharedPref = context.getSharedPreferences(
                 getString(R.string.preference_file_key), Context.MODE_PRIVATE);
@@ -55,6 +58,8 @@ public class Film_Detailed extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                         deleteLening();
+                        displayMessage("succesvol ingeleverd");
+                        finish();
                     }
             });
         }else{
@@ -65,6 +70,11 @@ public class Film_Detailed extends AppCompatActivity {
                     if (ReturndateEditText.getText().toString() != "") {
                         return_date = ReturndateEditText.getText().toString();
                         postLening();
+
+                        Intent intent = new Intent(getApplicationContext(), Film_Detailed.class);
+                        intent.putExtra(FILM_DATA, film);
+                        startActivity(intent);
+                        finish();
                     }else{
 
                     }
@@ -82,5 +92,9 @@ public class Film_Detailed extends AppCompatActivity {
     private void deleteLening(){
         InleverRequest request = new InleverRequest(getApplicationContext(),inventory_id);
         request.handleDeleteLening();
+    }
+
+    public void displayMessage(String toastString){
+        Toast.makeText(getApplicationContext(), toastString, Toast.LENGTH_LONG).show();
     }
 }
