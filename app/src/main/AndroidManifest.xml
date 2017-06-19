@@ -21,7 +21,9 @@
         </activity>
         <activity android:name=".presentation.LoginActivity" />
         <activity android:name=".presentation.RegisterActivity" />
-        <activity android:name=".presentation.Film_Detailed"></activity>
+        <activity android:name=".presentation.Film_Detailed" />
+        <activity android:name=".presentation.UserFilmActivity" />
+        <activity android:name=".presentation.UserFilm_Detailed"></activity>
     </application>
 
 </manifest>
