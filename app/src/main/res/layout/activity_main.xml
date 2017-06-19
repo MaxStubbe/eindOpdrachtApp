@@ -11,18 +11,35 @@
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:height="60dp"
+        android:layout_height="50dp"
         android:text="Logout"/>
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="410dp"
         android:layout_below="@+id/btnLogout"
         android:id="@+id/Filmlistview"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-
          />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnvorige"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="vorige"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btnvolgende"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="volgende"
+            android:layout_weight="1"/>
+    </LinearLayout>
 
 </LinearLayout>

@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity implements
     private BaseAdapter filmAdapter;
     private ArrayList<Film> films = new ArrayList<>();
     private Button btnLogout;
+    private Button btnVolgende;
+    private Button btnVorige;
+
+    private FilmRequest request;
 
 
     public final String TAG = this.getClass().getSimpleName();
@@ -48,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements
             listViewFilms.setOnItemClickListener(this);
             filmAdapter = new FilmAdapter(this, getLayoutInflater(), films);
             listViewFilms.setAdapter(filmAdapter);
+
+            request = new FilmRequest(getApplicationContext(), this);
 
             btnLogout = (Button) findViewById(R.id.btnLogout);
             btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +76,30 @@ public class MainActivity extends AppCompatActivity implements
 
                 }
             });
+
+            btnVolgende = (Button) findViewById(R.id.btnvolgende);
+            btnVolgende.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    request.volgende();
+                    getFilms();
+                }
+            });
+
+            btnVorige = (Button) findViewById(R.id.btnvolgende);
+            btnVorige.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    request.volgende();
+                    getFilms();
+                }
+            });
+
+
+
+            btnVorige = (Button) findViewById(R.id.btnvorige);
             //
             // We hebben een token. Je zou eerst nog kunnen valideren dat het token nog
             // geldig is; dat doen we nu niet.
@@ -130,7 +160,6 @@ public class MainActivity extends AppCompatActivity implements
      * Start the activity to GET all Films from the server.
      */
     private void getFilms(){
-        FilmRequest request = new FilmRequest(getApplicationContext(), this);
         request.handleGetAllFilms();
     }
 

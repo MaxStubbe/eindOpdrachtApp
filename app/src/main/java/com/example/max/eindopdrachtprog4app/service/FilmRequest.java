@@ -32,11 +32,23 @@ public class FilmRequest {
     public final String TAG = this.getClass().getSimpleName();
 
     private FilmRequest.FilmListener listener;
+    private int offset;
 
 
     public FilmRequest(Context context, FilmRequest.FilmListener listener) {
         this.context = context;
         this.listener = listener;
+        this.offset = 0;
+    }
+
+    public void volgende(){
+        offset = offset + 10;
+    }
+
+    public void vorige(){
+        if (offset != 0){
+            offset = offset - 10;
+        }
     }
 
     //GET REQUEST
@@ -50,7 +62,7 @@ public class FilmRequest {
 
             Log.i(TAG, "Token gevonden, we gaan het request uitvoeren");
             JsonArrayRequest jsObjRequest = new JsonArrayRequest
-                    (Request.Method.GET, Config.URL_FILMS, null, new Response.Listener<JSONArray>() {
+                    (Request.Method.GET, Config.URL_ALL_FILMS, null, new Response.Listener<JSONArray>() {
 
                         @Override
                         public void onResponse(JSONArray response) {
