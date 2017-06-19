@@ -139,8 +139,8 @@ public class MainActivity extends AppCompatActivity implements
         Log.i(TAG, "Position " + position + " is geselecteerd");
 
         Film film = films.get(position);
-        //Intent intent = new Intent(getApplicationContext(), filmDetailActivity.class);
-        //intent.putExtra(FILM_DATA, film);
-        //startActivity(intent);
+        Intent intent = new Intent(getApplicationContext(), Film_Detailed.class);
+        intent.putExtra(FILM_DATA, film);
+        startActivity(intent);
     }
 }

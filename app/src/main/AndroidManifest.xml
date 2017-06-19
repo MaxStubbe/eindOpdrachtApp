@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.LoginActivity" />
-        <activity android:name=".presentation.RegisterActivity"></activity>
+        <activity android:name=".presentation.RegisterActivity" />
+        <activity android:name=".presentation.Film_Detailed"></activity>
     </application>
 
 </manifest>
