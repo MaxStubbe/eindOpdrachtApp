@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements
     private BaseAdapter filmAdapter;
     private ArrayList<Film> films = new ArrayList<>();
     private Button btnLogout;
+    private Button UserFilmbtn;
 
 
     public final String TAG = this.getClass().getSimpleName();
@@ -48,6 +49,17 @@ public class MainActivity extends AppCompatActivity implements
             listViewFilms.setOnItemClickListener(this);
             filmAdapter = new FilmAdapter(this, getLayoutInflater(), films);
             listViewFilms.setAdapter(filmAdapter);
+
+            UserFilmbtn = (Button) findViewById(R.id.UserFilmButton);
+            UserFilmbtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    // Navigate to login screen
+                    Intent login = new Intent(getApplicationContext(), UserFilmActivity.class);
+                    startActivity(login);
+                }
+            });
 
             btnLogout = (Button) findViewById(R.id.btnLogout);
             btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +101,9 @@ public class MainActivity extends AppCompatActivity implements
             // back-button zonder inloggen terugkeert naar het homescreen.
             finish();
         }
+
+
+
     }
 
     private boolean tokenAvailable() {

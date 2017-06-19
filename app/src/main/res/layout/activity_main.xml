@@ -15,6 +15,13 @@
         android:height="60dp"
         android:text="Logout"/>
 
+    <Button
+        android:id="@+id/UserFilmButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="60dp"
+        android:text="UserFilm"/>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
