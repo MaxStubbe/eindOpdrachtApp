@@ -17,8 +17,9 @@ public class FilmMapper {
     public static final String FILM_RESULT = "result";
     public static final String FILM_TITLE = "title";
     public static final String FILM_DESCRIPTION = "description";
-    public static final String FILM_ACTIVE = ("active");
-    public static final String FILM_INV = ("inventory_id");
+    public static final String FILM_ACTIVE = "active";
+    public static final String FILM_ID = "film_id";
+    public static final String FILM_INV = "inventory_id";
     /**
      * Map het JSON response op een arraylist en retourneer deze.
      */

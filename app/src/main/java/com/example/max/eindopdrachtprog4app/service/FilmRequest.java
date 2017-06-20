@@ -42,12 +42,12 @@ public class FilmRequest {
     }
 
     public void volgende(){
-        offset = offset + 10;
+        this.offset = offset + 10;
     }
 
     public void vorige(){
         if (offset != 0){
-            offset = offset - 10;
+            this.offset = offset - 10;
         }
     }
 
@@ -63,6 +63,49 @@ public class FilmRequest {
             Log.i(TAG, "Token gevonden, we gaan het request uitvoeren");
             JsonArrayRequest jsObjRequest = new JsonArrayRequest
                     (Request.Method.GET, Config.URL_ALL_FILMS, null, new Response.Listener<JSONArray>() {
+
+                        @Override
+                        public void onResponse(JSONArray response) {
+                            // Succesvol response
+
+                            Log.i(TAG, response.toString());
+                            ArrayList<Film> result = FilmMapper.mapFilmList(response);
+                            listener.onFilmsAvailable(result);
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            handleErrorResponse(error);
+                            Log.e(TAG, error.toString());
+                        }
+                    }) {
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String, String> headers = new HashMap<>();
+                    headers.put("Content-Type", "application/json");
+                    headers.put("Authorization", "Bearer " + token);
+                    return headers;
+                }
+            };
+
+            // Access the RequestQueue through your singleton class.
+            VolleyRequestQueue.getInstance(context).addToRequestQueue(jsObjRequest);
+        }
+    }
+
+    //GET REQUEST
+    public void handleGetFilm(String filmid) {
+
+        String film_id = filmid;
+        // Haal het token uit de prefs
+        SharedPreferences sharedPref = context.getSharedPreferences(
+                context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        final String token = sharedPref.getString(context.getString(R.string.saved_token), "dummy default token");
+        if (token != null && !token.equals("dummy default token")) {
+
+            Log.i(TAG, "Token gevonden, we gaan het request uitvoeren");
+            JsonArrayRequest jsObjRequest = new JsonArrayRequest
+                    (Request.Method.GET, Config.URL_FILM(film_id), null, new Response.Listener<JSONArray>() {
 
                         @Override
                         public void onResponse(JSONArray response) {

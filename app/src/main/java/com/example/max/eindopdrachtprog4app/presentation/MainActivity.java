@@ -98,8 +98,10 @@ public class MainActivity extends AppCompatActivity implements
 
                 @Override
                 public void onClick(View v) {
+                    films.clear();
                     request.volgende();
-                    getFilms();
+                    request.handleGetAllFilms();
+                    filmAdapter.notifyDataSetChanged();
                 }
             });
 
@@ -108,14 +110,13 @@ public class MainActivity extends AppCompatActivity implements
 
                 @Override
                 public void onClick(View v) {
-                    request.volgende();
-                    getFilms();
+                    films.clear();
+                    request.vorige();
+                    request.handleGetAllFilms();
+                    filmAdapter.notifyDataSetChanged();
                 }
             });
 
-
-
-            btnVorige = (Button) findViewById(R.id.btnvorige);
             //
             // We hebben een token. Je zou eerst nog kunnen valideren dat het token nog
             // geldig is; dat doen we nu niet.

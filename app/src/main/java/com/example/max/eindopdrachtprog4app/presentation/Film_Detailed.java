@@ -29,6 +29,7 @@ public class Film_Detailed extends AppCompatActivity {
 
 
     private String return_date;
+    private String film_id;
     private String inventory_id;
 
     @Override

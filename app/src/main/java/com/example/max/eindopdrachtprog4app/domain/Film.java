@@ -13,6 +13,10 @@ public class Film implements Serializable {
     private String title;
 
 
+
+    private String film_id;
+
+
     private String inventory_id;
 
     public Film(String title, String description,String active,String inventory_id) {
@@ -24,6 +28,12 @@ public class Film implements Serializable {
             this.active = false;
         }
         this.inventory_id = inventory_id;
+    }
+
+    public Film(String title,String description,String filmid){
+        this.title = title;
+        this.description= description;
+        this.film_id = filmid;
     }
 
 
@@ -57,6 +67,14 @@ public class Film implements Serializable {
 
     public void setInventory_id(String inventory_id) {
         this.inventory_id = inventory_id;
+    }
+
+    public String getFilm_id() {
+        return film_id;
+    }
+
+    public void setFilm_id(String film_id) {
+        this.film_id = film_id;
     }
 
 }
