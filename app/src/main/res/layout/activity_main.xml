@@ -1,18 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.max.eindopdrachtprog4app.MainActivity">
+    tools:context="com.example.max.eindopdrachtprog4app.presentation.MainActivity"
+    android:orientation="vertical"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Logout"/>
+
+    <Button
+        android:id="@+id/UserFilmButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:height="60dp"
+        android:text="UserFilm"/>
 
-</android.support.constraint.ConstraintLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="410dp"
+        android:layout_below="@+id/btnLogout"
+        android:id="@+id/Filmlistview"
+        android:layout_alignParentRight="true"
+         />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnvorige"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="vorige"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btnvolgende"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="volgende"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+</LinearLayout>

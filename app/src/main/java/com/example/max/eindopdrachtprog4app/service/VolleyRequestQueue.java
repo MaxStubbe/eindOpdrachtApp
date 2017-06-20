@@ -1,4 +1,4 @@
-package com.example.max.eindopdrachtprog4app;
+package com.example.max.eindopdrachtprog4app.service;
 
 import android.content.Context;
 
@@ -9,6 +9,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.BasicNetwork;
 import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
+import com.android.volley.toolbox.Volley;
 
 public class VolleyRequestQueue {
 
@@ -47,7 +48,7 @@ public class VolleyRequestQueue {
 
             Cache cache = new DiskBasedCache(mCtx.getCacheDir(), 10 * 1024 * 1024);
             Network network = new BasicNetwork(new HurlStack());
-            // mRequestQueue = Volley.newRequestQueue(mCtx.getApplicationContext());
+            mRequestQueue = Volley.newRequestQueue(mCtx.getApplicationContext());
             mRequestQueue = new RequestQueue(cache, network);
             mRequestQueue.start();
         }
